@@ -1,0 +1,371 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca8h5g8r1dyvk"]
+
+[ext_resource type="Script" path="res://scripts/Meltona.gd" id="1_qp5o2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_412bj"]
+height = 4.0
+radius = 1.8
+
+[sub_resource type="Curve3D" id="Curve3D_mj05u"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(-0.713441, -0.0563073, -1.49794e-07, 0.713441, 0.0563073, 1.49794e-07, 1, 1, 0, 0, 0, 0, -1, -1, 0, 0.661998, -0.365088, 5.78737e-08, 0, 0, 0, 1, -1, 0, 0.924859, -1.21208, 8.08537e-08, -0.438101, -0.856732, -3.83e-08, 0.438101, 0.856732, 3.83e-08, -1.3508, 1.42661, -1.1809e-07, 0, 0, 0, 0, 0, 0, 1, 1, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="BoxMesh" id="BoxMesh_ygcbp"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Meltona" type="CharacterBody3D"]
+script = ExtResource("1_qp5o2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_412bj")
+
+[node name="X-Circle" type="Path3D" parent="."]
+curve = SubResource("Curve3D_mj05u")
+
+[node name="el_1" type="PathFollow3D" parent="X-Circle"]
+transform = Transform3D(7.54979e-08, 0.707107, 0.707107, 0, 0.707107, -0.707107, -1, 5.33851e-08, 5.33851e-08, 1, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="X-Circle/el_1"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_2" type="PathFollow3D" parent="X-Circle"]
+transform = Transform3D(-2.94601e-08, -0.303734, 0.952755, -4.47035e-08, 0.952755, 0.303734, -1, -3.36434e-08, -4.16463e-08, -0.787985, 1.15976, -4.38639e-08)
+progress = 2.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="X-Circle/el_2"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_3" type="PathFollow3D" parent="X-Circle"]
+transform = Transform3D(1.71088e-08, -0.991741, -0.128239, -8.05131e-08, -0.128239, 0.991741, -1, -6.64254e-09, -8.20422e-08, -1.40909, -0.656079, 1.42525e-08)
+progress = 4.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="X-Circle/el_3"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_4" type="PathFollow3D" parent="X-Circle"]
+transform = Transform3D(2.28033e-08, 0.23916, -0.970978, 8.48858e-08, -0.970978, -0.23916, -1, -7.69686e-08, -4.24428e-08, -0.0477791, -1.66678, 5.36489e-08)
+progress = 6.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="X-Circle/el_4"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_5" type="PathFollow3D" parent="X-Circle"]
+transform = Transform3D(-5.40961e-08, 0.647749, -0.761852, 1.15037e-07, -0.761852, -0.647749, -1, -1.22682e-07, -3.33016e-08, 0.975071, -1.10331, 4.42048e-08)
+progress = 7.17598
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="X-Circle/el_5"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_6" type="PathFollow3D" parent="X-Circle"]
+transform = Transform3D(7.39988e-08, 0.197251, 0.98035, -7.45058e-09, 0.98035, -0.197251, -1, 7.29215e-09, 7.40144e-08, 0.235385, 1.44729, -8.48918e-09)
+progress = 0.896997
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="X-Circle/el_6"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="Y-Circle" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+curve = SubResource("Curve3D_mj05u")
+
+[node name="el_1" type="PathFollow3D" parent="Y-Circle"]
+transform = Transform3D(7.54979e-08, 0.707107, 0.707107, 0, 0.707107, -0.707107, -1, 5.33851e-08, 5.33851e-08, 1, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Y-Circle/el_1"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_2" type="PathFollow3D" parent="Y-Circle"]
+transform = Transform3D(-2.94601e-08, -0.303734, 0.952755, -4.47035e-08, 0.952755, 0.303734, -1, -3.36434e-08, -4.16463e-08, -0.787985, 1.15976, -4.38639e-08)
+progress = 2.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Y-Circle/el_2"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_3" type="PathFollow3D" parent="Y-Circle"]
+transform = Transform3D(1.71088e-08, -0.991741, -0.128239, -8.05131e-08, -0.128239, 0.991741, -1, -6.64254e-09, -8.20422e-08, -1.40909, -0.656079, 1.42525e-08)
+progress = 4.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Y-Circle/el_3"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_4" type="PathFollow3D" parent="Y-Circle"]
+transform = Transform3D(2.28033e-08, 0.23916, -0.970978, 8.48858e-08, -0.970978, -0.23916, -1, -7.69686e-08, -4.24428e-08, -0.0477791, -1.66678, 5.36489e-08)
+progress = 6.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Y-Circle/el_4"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_5" type="PathFollow3D" parent="Y-Circle"]
+transform = Transform3D(-5.40961e-08, 0.647749, -0.761852, 1.15037e-07, -0.761852, -0.647749, -1, -1.22682e-07, -3.33016e-08, 0.975071, -1.10331, 4.42048e-08)
+progress = 7.17598
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Y-Circle/el_5"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_6" type="PathFollow3D" parent="Y-Circle"]
+transform = Transform3D(7.39988e-08, 0.197251, 0.98035, -7.45058e-09, 0.98035, -0.197251, -1, 7.29215e-09, 7.40144e-08, 0.235385, 1.44729, -8.48918e-09)
+progress = 0.896997
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Y-Circle/el_6"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="Z-Circle" type="Path3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+curve = SubResource("Curve3D_mj05u")
+
+[node name="el_1" type="PathFollow3D" parent="Z-Circle"]
+transform = Transform3D(7.54979e-08, 0.707107, 0.707107, 0, 0.707107, -0.707107, -1, 5.33851e-08, 5.33851e-08, 1, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Z-Circle/el_1"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_2" type="PathFollow3D" parent="Z-Circle"]
+transform = Transform3D(-2.94601e-08, -0.303734, 0.952755, -4.47035e-08, 0.952755, 0.303734, -1, -3.36434e-08, -4.16463e-08, -0.787985, 1.15976, -4.38639e-08)
+progress = 2.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Z-Circle/el_2"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_3" type="PathFollow3D" parent="Z-Circle"]
+transform = Transform3D(1.71088e-08, -0.991741, -0.128239, -8.05131e-08, -0.128239, 0.991741, -1, -6.64254e-09, -8.20422e-08, -1.40909, -0.656079, 1.42525e-08)
+progress = 4.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Z-Circle/el_3"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_4" type="PathFollow3D" parent="Z-Circle"]
+transform = Transform3D(2.28033e-08, 0.23916, -0.970978, 8.48858e-08, -0.970978, -0.23916, -1, -7.69686e-08, -4.24428e-08, -0.0477791, -1.66678, 5.36489e-08)
+progress = 6.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Z-Circle/el_4"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_5" type="PathFollow3D" parent="Z-Circle"]
+transform = Transform3D(-5.40961e-08, 0.647749, -0.761852, 1.15037e-07, -0.761852, -0.647749, -1, -1.22682e-07, -3.33016e-08, 0.975071, -1.10331, 4.42048e-08)
+progress = 7.17598
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Z-Circle/el_5"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="el_6" type="PathFollow3D" parent="Z-Circle"]
+transform = Transform3D(7.39988e-08, 0.197251, 0.98035, -7.45058e-09, 0.98035, -0.197251, -1, 7.29215e-09, 7.40144e-08, 0.235385, 1.44729, -8.48918e-09)
+progress = 0.896997
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Z-Circle/el_6"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../..")
+
+[node name="InternalCurve" type="Path3D" parent="."]
+transform = Transform3D(0.414693, 0.909961, 5.38228e-08, 0.560228, -0.255311, -0.788011, -0.717059, 0.326783, -0.615662, 0, 0, 0)
+curve = SubResource("Curve3D_mj05u")
+
+[node name="el_1" type="PathFollow3D" parent="InternalCurve"]
+transform = Transform3D(7.54979e-08, 0.707107, 0.707107, 0, 0.707107, -0.707107, -1, 5.33851e-08, 5.33851e-08, 1, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve/el_1"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_2" type="PathFollow3D" parent="InternalCurve"]
+transform = Transform3D(-2.94601e-08, -0.303733, 0.952755, -4.47035e-08, 0.952755, 0.303733, -1, -3.36434e-08, -4.16462e-08, -0.787985, 1.15976, -4.38639e-08)
+progress = 2.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="InternalCurve/el_2"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_3" type="PathFollow3D" parent="InternalCurve"]
+transform = Transform3D(1.71088e-08, -0.991741, -0.128239, -8.05131e-08, -0.128239, 0.991741, -1, -6.64254e-09, -8.20422e-08, -1.40909, -0.656079, 1.42525e-08)
+progress = 4.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve/el_3"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_4" type="PathFollow3D" parent="InternalCurve"]
+transform = Transform3D(2.28033e-08, 0.23916, -0.970979, 8.48858e-08, -0.970979, -0.23916, -1, -7.69686e-08, -4.24428e-08, -0.0477791, -1.66678, 5.36489e-08)
+progress = 6.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve/el_4"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_5" type="PathFollow3D" parent="InternalCurve"]
+transform = Transform3D(-5.40961e-08, 0.647749, -0.761852, 1.15037e-07, -0.761852, -0.647749, -1, -1.22682e-07, -3.33016e-08, 0.975071, -1.10331, 4.42048e-08)
+progress = 7.17598
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve/el_5"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_6" type="PathFollow3D" parent="InternalCurve"]
+transform = Transform3D(7.39988e-08, 0.197251, 0.980351, -7.45058e-09, 0.980351, -0.197251, -1, 7.29215e-09, 7.40144e-08, 0.235385, 1.44729, -8.48918e-09)
+progress = 0.896997
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve/el_6"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="InternalCurve3" type="Path3D" parent="."]
+transform = Transform3D(-1, 7.29006e-08, 4.82519e-08, 0, 0.551937, -0.833886, -8.74228e-08, -0.833886, -0.551937, 0, 0, 0)
+curve = SubResource("Curve3D_mj05u")
+
+[node name="el_1" type="PathFollow3D" parent="InternalCurve3"]
+transform = Transform3D(-2.81836e-07, -0.0786789, -0.9969, -3.72529e-09, 0.9969, -0.0786789, 1, -1.84608e-08, -2.81255e-07, 1, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve3/el_1"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_2" type="PathFollow3D" parent="InternalCurve3"]
+transform = Transform3D(-2.65321e-07, 0.79358, 0.608462, 2.36944e-07, -0.608462, 0.79358, 1, 3.54725e-07, -2.65967e-08, 0.451167, -0.600824, 5.83894e-08)
+progress = 2.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="InternalCurve3/el_2"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_3" type="PathFollow3D" parent="InternalCurve3"]
+transform = Transform3D(2.11037e-08, -0.639762, 0.768571, 1.16051e-07, -0.768571, -0.639762, 1, 1.02695e-07, 5.80255e-08, 0.37836, -0.919551, -4.26383e-09)
+progress = 4.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve3/el_3"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_4" type="PathFollow3D" parent="InternalCurve3"]
+transform = Transform3D(4.54534e-08, -0.801023, 0.598631, 9.03909e-08, -0.598631, -0.801023, 1, 9.052e-08, 4.51954e-08, -1.02873, 0.497884, -1.02497e-07)
+progress = 6.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve3/el_4"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_5" type="PathFollow3D" parent="InternalCurve3"]
+transform = Transform3D(2.01039e-07, -0.725156, -0.688583, -1.19209e-07, 0.688583, -0.725156, 1, 2.2787e-07, 5.19865e-08, -1.26336, 1.55159, -1.11252e-07)
+progress = 7.17598
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve3/el_5"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_6" type="PathFollow3D" parent="InternalCurve3"]
+transform = Transform3D(-4.21683e-07, 0.888988, 0.457925, 1.78323e-07, -0.457925, 0.888988, 1, 4.5653e-07, 3.45724e-08, 1.0782, 0.298462, 8.4545e-08)
+progress = 0.896997
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve3/el_6"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="InternalCurve2" type="Path3D" parent="."]
+transform = Transform3D(-0.165048, 0.817668, -0.551524, 0, 0.559193, 0.829038, 0.986286, 0.136831, -0.0922935, 0, 0, 0)
+curve = SubResource("Curve3D_mj05u")
+
+[node name="el_1" type="PathFollow3D" parent="InternalCurve2"]
+transform = Transform3D(7.54979e-08, 0.707107, 0.707107, 0, 0.707107, -0.707107, -1, 5.33851e-08, 5.33851e-08, 1, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve2/el_1"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_2" type="PathFollow3D" parent="InternalCurve2"]
+transform = Transform3D(-2.94601e-08, -0.303734, 0.952755, -4.47035e-08, 0.952755, 0.303734, -1, -3.36434e-08, -4.16463e-08, -0.787985, 1.15976, -4.38639e-08)
+progress = 2.0
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="InternalCurve2/el_2"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_3" type="PathFollow3D" parent="InternalCurve2"]
+transform = Transform3D(1.71088e-08, -0.991741, -0.128239, -8.05131e-08, -0.128239, 0.991741, -1, -6.64254e-09, -8.20422e-08, -1.40909, -0.656079, 1.42525e-08)
+progress = 4.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve2/el_3"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_4" type="PathFollow3D" parent="InternalCurve2"]
+transform = Transform3D(2.28033e-08, 0.23916, -0.970978, 8.48858e-08, -0.970978, -0.23916, -1, -7.69686e-08, -4.24428e-08, -0.0477791, -1.66678, 5.36489e-08)
+progress = 6.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve2/el_4"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_5" type="PathFollow3D" parent="InternalCurve2"]
+transform = Transform3D(-5.40961e-08, 0.647749, -0.761852, 1.15037e-07, -0.761852, -0.647749, -1, -1.22682e-07, -3.33016e-08, 0.975071, -1.10331, 4.42048e-08)
+progress = 7.17598
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve2/el_5"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="el_6" type="PathFollow3D" parent="InternalCurve2"]
+transform = Transform3D(7.39988e-08, 0.197251, 0.98035, -7.45058e-09, 0.98035, -0.197251, -1, 7.29215e-09, 7.40144e-08, 0.235385, 1.44729, -8.48918e-09)
+progress = 0.896997
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="InternalCurve2/el_6"]
+transform = Transform3D(7.54979e-08, -3.55271e-15, -1, 0.707107, 0.707107, 5.33851e-08, 0.707107, -0.707107, 5.33851e-08, 0, 0, 0)
+mesh = SubResource("BoxMesh_ygcbp")
+skeleton = NodePath("../../../Z-Circle")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(1, 0, 0, 1)
+light_energy = 10.0
+light_size = 2.0
+omni_range = 50.0

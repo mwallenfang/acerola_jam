@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://6jerwipeh1ai"]
+[gd_scene load_steps=23 format=3 uid="uid://6jerwipeh1ai"]
 
 [ext_resource type="PackedScene" uid="uid://y8tikcdkscmp" path="res://scenes/player.tscn" id="1_ocfaj"]
 [ext_resource type="Texture2D" uid="uid://dxktqnv2pb3vt" path="res://assets/dev/grids/Orange/texture_05.png" id="2_1hop1"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://5k1xdg6ydfrm" path="res://scenes/wall.tscn" id="5_ahnas"]
 [ext_resource type="ArrayMesh" uid="uid://qmob0f5n537u" path="res://assets/models/gun/gun.obj" id="6_nhwul"]
 [ext_resource type="Script" path="res://scripts/MovingPlatform.gd" id="6_xp0ei"]
+[ext_resource type="Script" path="res://scripts/Enemy.gd" id="8_pt8f0"]
+[ext_resource type="PackedScene" uid="uid://ca8h5g8r1dyvk" path="res://enemies/meltona.tscn" id="9_67l41"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7af5o"]
 albedo_texture = ExtResource("2_1hop1")
@@ -46,12 +48,13 @@ sky_material = SubResource("ProceduralSkyMaterial_j45pf")
 [sub_resource type="Environment" id="Environment_uqhsc"]
 background_mode = 2
 sky = SubResource("Sky_70anp")
-tonemap_mode = 2
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
+tonemap_mode = 3
 sdfgi_read_sky_light = false
 glow_enabled = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4khf7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kbdht"]
 
 [node name="World" type="Node3D"]
 
@@ -97,16 +100,16 @@ use_collision = true
 size = Vector3(50, 1, 10)
 
 [node name="CSGBox3D29" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00557899, -4.49447, 49.9993)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00557899, -4.49447, 56.9993)
 material_override = SubResource("StandardMaterial3D_7af5o")
 use_collision = true
-size = Vector3(50, 1, 10)
+size = Vector3(50, 1, 24)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 22)
 material_override = SubResource("StandardMaterial3D_gkaa3")
 use_collision = true
-size = Vector3(50, 1, 82)
+size = Vector3(50, 1, 94)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -5.5)
@@ -145,16 +148,16 @@ use_collision = true
 size = Vector3(1, 6, 5)
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 3, 49)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, 3, 52.5)
 material_override = SubResource("StandardMaterial3D_6nbtf")
 use_collision = true
-size = Vector3(1, 6, 18)
+size = Vector3(1, 6, 25)
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 3, 48)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 3, 54)
 material_override = SubResource("StandardMaterial3D_6nbtf")
 use_collision = true
-size = Vector3(1, 6, 16)
+size = Vector3(1, 6, 28)
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3, 36.5)
@@ -175,16 +178,16 @@ use_collision = true
 size = Vector3(35, 6, 1)
 
 [node name="CSGBox3D27" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -3, 50.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, -3, 56.5)
 material_override = SubResource("StandardMaterial3D_6nbtf")
 use_collision = true
-size = Vector3(1, 6, 11)
+size = Vector3(1, 6, 23)
 
 [node name="CSGBox3D28" type="CSGBox3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, -3, 51)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5, -3, 54.5)
 material_override = SubResource("StandardMaterial3D_6nbtf")
 use_collision = true
-size = Vector3(1, 6, 14)
+size = Vector3(1, 6, 21)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 20.5)
@@ -332,3 +335,18 @@ environment = SubResource("Environment_uqhsc")
 [node name="Gun" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0786686, -0.0145054, -0.000921119, 0.000958817, 0.000120273, 0.0799942, -0.014503, -0.0786739, 0.000292122, -3.27557, 1.12623, 2.20273)
 mesh = ExtResource("6_nhwul")
+
+[node name="Entities" type="Node3D" parent="."]
+
+[node name="Enemy" type="CharacterBody3D" parent="Entities"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.267, 17.1553)
+script = ExtResource("8_pt8f0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entities/Enemy"]
+shape = SubResource("SphereShape3D_4khf7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Entities/Enemy"]
+mesh = SubResource("SphereMesh_kbdht")
+
+[node name="Meltona" parent="Entities" instance=ExtResource("9_67l41")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.63325, 61.8089)
