@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://y8tikcdkscmp"]
+[gd_scene load_steps=20 format=3 uid="uid://y8tikcdkscmp"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_t632k"]
 [ext_resource type="ArrayMesh" uid="uid://qmob0f5n537u" path="res://assets/models/gun/gun.obj" id="2_tb4pv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/SlidingPlayerState.gd" id="7_sh40b"]
 [ext_resource type="Script" path="res://scenes/Reticle.gd" id="9_1nad2"]
 [ext_resource type="Script" path="res://scripts/Menu.gd" id="10_p10j3"]
+[ext_resource type="Texture2D" uid="uid://dxktqnv2pb3vt" path="res://assets/dev/grids/Orange/texture_05.png" id="11_5slc7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p056g"]
 
@@ -94,12 +95,111 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, 1.5, 0)]
 }
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CameraController:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CameraController:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CameraController:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CameraController/Camera3D:position:z")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_2vacy"]
+resource_name = "Walking"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CameraController/Camera3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.2, 0.0286235, 0.05, -0.25, 0, 0.2, -0.00247395, 0, -0.2, 0.0238979, 0.2, -0.0292654, -0.05, -0.25, 0, 0.25, 0, 0, -0.2, -0.0345817, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 0.9, 1.5, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CameraController/Camera3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0.1, -0.25, 0, 0.1, 0.00803316, 0.1, -0.1, 0.00261033, 0.1, -0.0172597, 0, -0.1, 0.0434874, 0.1, 0.0358901, 0.1, -0.25, 0, 0.402176, -0.00334466, 0, -0.197824, 0.0409842, 0.202176, 0.0409842, 0.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.5, 1, 1.5, 2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("CameraController:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 0.9)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CameraController/Camera3D:position:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ty570"]
 _data = {
 "Crouch": SubResource("Animation_hs5ke"),
-"RESET": SubResource("Animation_kptlg")
+"RESET": SubResource("Animation_kptlg"),
+"Walking": SubResource("Animation_2vacy")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_amr5c"]
+albedo_texture = ExtResource("11_5slc7")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
 
 [node name="player" type="CharacterBody3D"]
 script = ExtResource("1_t632k")
@@ -205,6 +305,12 @@ text = "Paused"
 [node name="Button" type="Button" parent="Control/Menu/VBoxContainer"]
 layout_mode = 2
 text = "Return"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.477875, 1.52191, -3.48376)
+visible = false
+material_override = SubResource("StandardMaterial3D_amr5c")
+size = Vector3(7.61438, 4.04382, 1)
 
 [connection signal="menu_pressed" from="." to="Control/Menu" method="_on_player_menu_pressed"]
 [connection signal="pressed" from="Control/Menu/VBoxContainer/Button" to="Control/Menu" method="_on_button_pressed"]
