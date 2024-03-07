@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://bte8mwynv7rhf"]
+
+[ext_resource type="Script" path="res://enemies/bobby.gd" id="1_eanqe"]
+[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_tvual"]
+[ext_resource type="Script" path="res://scripts/HurtComponent.gd" id="3_ej4sb"]
+[ext_resource type="Script" path="res://scripts/SimpleFollowComponent.gd" id="4_6gmi5"]
+[ext_resource type="Script" path="res://scripts/DeathComponent.gd" id="4_wfwsn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4khf7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_kbdht"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gaa5f"]
+
+[node name="Bobby" type="CharacterBody3D"]
+script = ExtResource("1_eanqe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_4khf7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_kbdht")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_tvual")
+
+[node name="SimpleFollowComponent" type="Node" parent="."]
+script = ExtResource("4_6gmi5")
+
+[node name="HurtComponent" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_ej4sb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtComponent"]
+shape = SubResource("SphereShape3D_gaa5f")
+
+[node name="DeathComponent" type="Node" parent="."]
+script = ExtResource("4_wfwsn")
+
+[connection signal="new_health_val" from="HealthComponent" to="DeathComponent" method="_on_health_component_new_health_val"]
+[connection signal="on_hit" from="HurtComponent" to="HealthComponent" method="_on_hurt_component_on_hit"]
+[connection signal="death" from="DeathComponent" to="." method="_on_death_component_death"]
