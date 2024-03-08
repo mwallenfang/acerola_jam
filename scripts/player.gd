@@ -5,7 +5,7 @@ extends CharacterBody3D
 signal menu_pressed
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 5.
 @onready var camera_controller = $CameraController
 @onready var crouch_shapecast = $ShapeCast3D
 @onready var animation_player = $AnimationPlayer
