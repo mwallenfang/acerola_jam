@@ -13,3 +13,6 @@ func _process(delta):
 
 func _on_death_component_death():
 	queue_free()
+
+func push_back(dir):
+	pass

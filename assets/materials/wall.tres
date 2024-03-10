@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dh116jb6hrg87"]
+
+[resource]
+normal_scale = 0.2
+uv1_triplanar = true

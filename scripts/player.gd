@@ -26,6 +26,9 @@ var camera_rotation : Vector3
 @export var TILT_LOWER_LIMIT := deg_to_rad(-90.0)
 @export var TILT_UPPER_LIMIT := deg_to_rad(90.0)
 
+@onready var hand = $CameraController/Hand
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	
 	mouse_input = event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
@@ -96,3 +99,7 @@ func update_input(speed, acceleration, deceleration):
 func update_velocity():
 	move_and_slide()
 
+
+
+func _on_gun_pickup_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	hand.equip_gun()

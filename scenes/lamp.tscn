@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://gwv5er3i2u3r"]
+
+[ext_resource type="ArrayMesh" uid="uid://cc7wp00qj1h4k" path="res://assets/models/lamp/lamp.obj" id="1_huqst"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15pjv"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 60.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qrs2q"]
+size = Vector3(0.09729, 0.0771484, 1.09125)
+
+[node name="Lamp" type="StaticBody3D"]
+
+[node name="Lamp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+mesh = ExtResource("1_huqst")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_15pjv")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0693566, 0)
+visible = false
+shadow_enabled = true
+omni_range = 7.0
+omni_attenuation = 1.18921
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00115967, 0.0175142, 0.00112915)
+shape = SubResource("BoxShape3D_qrs2q")

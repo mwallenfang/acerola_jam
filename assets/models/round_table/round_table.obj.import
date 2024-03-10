@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dwn2g83n5hxrx"
+path="res://.godot/imported/round_table.obj-4881d44437892f3e1c150e04a9ab1aae.mesh"
+
+[deps]
+
+files=["res://.godot/imported/round_table.obj-4881d44437892f3e1c150e04a9ab1aae.mesh"]
+
+source_file="res://assets/models/round_table/round_table.obj"
+dest_files=["res://.godot/imported/round_table.obj-4881d44437892f3e1c150e04a9ab1aae.mesh", "res://.godot/imported/round_table.obj-4881d44437892f3e1c150e04a9ab1aae.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

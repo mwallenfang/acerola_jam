@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ekhsqups5bq1"
+path="res://.godot/imported/drink_carton.obj-9a44f013ac1ef05f4a9929cc9a9e467f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/drink_carton.obj-9a44f013ac1ef05f4a9929cc9a9e467f.mesh"]
+
+source_file="res://assets/models/drink_carton/drink_carton.obj"
+dest_files=["res://.godot/imported/drink_carton.obj-9a44f013ac1ef05f4a9929cc9a9e467f.mesh", "res://.godot/imported/drink_carton.obj-9a44f013ac1ef05f4a9929cc9a9e467f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

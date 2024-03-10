@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://enemies/Meltona/meltona.gd" id="1_5xk15"]
 [ext_resource type="Script" path="res://enemies/Meltona/BodyElements.gd" id="2_2ogb3"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_i2pql"]
-[ext_resource type="Script" path="res://scripts/HurtComponent.gd" id="3_xu7ns"]
+[ext_resource type="Script" path="res://enemies/MeltonaHurtComponent.gd" id="4_oaq1j"]
 [ext_resource type="Script" path="res://scripts/DeathComponent.gd" id="5_f4rxm"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_412bj"]
@@ -31,13 +31,14 @@ script = ExtResource("1_5xk15")
 shape = SubResource("CylinderShape3D_412bj")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95007, -0.0193826)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68508, -0.0193826)
 light_color = Color(1, 0, 0, 1)
 light_energy = 10.0
 light_indirect_energy = 5.0
 shadow_enabled = true
 shadow_reverse_cull_face = true
-omni_range = 10.0
+omni_range = 28.824
+omni_attenuation = 2.14355
 
 [node name="BodyElements" type="Node3D" parent="."]
 script = ExtResource("2_2ogb3")
@@ -385,11 +386,12 @@ skeleton = NodePath("../../../Z-Circle")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_i2pql")
+max_health = 200
 
 [node name="HurtComponent" type="Area3D" parent="."]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("3_xu7ns")
+script = ExtResource("4_oaq1j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HurtComponent"]
 shape = SubResource("SphereShape3D_rrk5u")

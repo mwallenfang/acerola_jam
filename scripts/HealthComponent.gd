@@ -10,7 +10,9 @@ var health
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health = max_health
-	for node in get_parent().get_children():
+
+	var children = Global.get_all_children(get_owner())
+	for node in children:
 		if node.name == "HurtComponent":
 			node.connect("on_hit", damage)
 
@@ -21,11 +23,6 @@ func _process(delta):
 
 func damage(amount):
 	health -= amount
-	print(health)
+
 	emit_signal("new_health_val", health)
 
-
-
-#func _on_hurt_component_on_hit(amount):
-	#print("Hit")
-	#damage(amount)
