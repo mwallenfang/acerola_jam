@@ -1,6 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdfuljgexm7ox"]
+[gd_scene load_steps=6 format=3 uid="uid://bdfuljgexm7ox"]
 
 [ext_resource type="ArrayMesh" uid="uid://dsrgarpnrq07p" path="res://assets/models/wall_door/wall_door.obj" id="1_sdp4b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ij8yy"]
+albedo_color = Color(0.929412, 0.929412, 0.929412, 1)
+metallic = 0.64
+metallic_specular = 0.89
+roughness = 0.65
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h2jkl"]
 size = Vector3(2.57825, 2.32477, 0.254639)
@@ -15,6 +21,8 @@ size = Vector3(3.14136, 0.356567, 0.516846)
 
 [node name="WallDoor" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_sdp4b")
+surface_material_override/0 = SubResource("StandardMaterial3D_ij8yy")
+surface_material_override/1 = SubResource("StandardMaterial3D_ij8yy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.685608, -0.143707, -0.0020752)
