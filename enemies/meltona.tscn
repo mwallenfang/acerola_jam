@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://ca8h5g8r1dyvk"]
+[gd_scene load_steps=12 format=3 uid="uid://ca8h5g8r1dyvk"]
 
 [ext_resource type="Script" path="res://enemies/Meltona/meltona.gd" id="1_5xk15"]
 [ext_resource type="Script" path="res://enemies/Meltona/BodyElements.gd" id="2_2ogb3"]
-[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_i2pql"]
+[ext_resource type="Script" path="res://scripts/components/HealthComponent.gd" id="2_i2pql"]
 [ext_resource type="Script" path="res://enemies/MeltonaHurtComponent.gd" id="4_oaq1j"]
-[ext_resource type="Script" path="res://scripts/DeathComponent.gd" id="5_f4rxm"]
+[ext_resource type="Script" path="res://scripts/components/DeathComponent.gd" id="5_f4rxm"]
+[ext_resource type="AudioStream" uid="uid://u3bkw74xvhmd" path="res://assets/meltona_sfx_boss_loop.ogg" id="6_w8hoe"]
+[ext_resource type="Script" path="res://scripts/enemies/MeltonaTimer.gd" id="7_0f20c"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_412bj"]
 height = 4.0
@@ -35,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68508, -0.0193826)
 light_color = Color(1, 0, 0, 1)
 light_energy = 10.0
 light_indirect_energy = 5.0
+light_bake_mode = 0
 shadow_enabled = true
 shadow_reverse_cull_face = true
 omni_range = 28.824
@@ -399,4 +402,17 @@ shape = SubResource("SphereShape3D_rrk5u")
 [node name="DeathComponent" type="Node" parent="."]
 script = ExtResource("5_f4rxm")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_w8hoe")
+volume_db = -11.034
+unit_size = 6.56
+autoplay = true
+max_distance = 20.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+script = ExtResource("7_0f20c")
+
+[connection signal="on_hit" from="HurtComponent" to="Timer" method="_on_hurt_component_on_hit"]
 [connection signal="death" from="DeathComponent" to="." method="_on_death_component_death"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

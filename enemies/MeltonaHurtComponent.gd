@@ -17,4 +17,5 @@ func _process(delta):
 
 
 func hit(damage):
+	print("What")
 	emit_signal("on_hit", damage)

@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://d77p5kmgu63x"
+path="res://.godot/imported/defense.exr-dfd4627e6424dad614a70d6d04ac8a1b.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://scenes/stages/defense.exr"
+dest_files=["res://.godot/imported/defense.exr-dfd4627e6424dad614a70d6d04ac8a1b.ctexarray"]
+
+[params]
+
+compress/mode=3
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=1
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=1
+slices/vertical=1

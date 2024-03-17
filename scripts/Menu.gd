@@ -25,3 +25,7 @@ func toggle_menu():
 
 func _on_button_pressed():
 	toggle_menu()
+
+
+func _on_button_button_up():
+	get_tree().quit()

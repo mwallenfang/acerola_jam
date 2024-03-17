@@ -17,6 +17,7 @@ var dash_cooldown = 3.
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+	$AudioStreamPlayer3D.play(randf() * 50.)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,6 +44,4 @@ func _on_death_component_death():
 	queue_free()
 
 func push_back(dir):
-	print("Yes")
-	print(dir)
 	simple_follow_component.impact(dir)

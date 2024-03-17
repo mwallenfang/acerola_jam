@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Acerola Jam"
-run/main_scene="res://scenes/world.tscn"
+config/name="Moltena"
+run/main_scene="res://scenes/stages/defense.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"

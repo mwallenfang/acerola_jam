@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://v758kidpli68"]
+
+[ext_resource type="PackedScene" uid="uid://boe8evtl1odrx" path="res://assets/models/debris/debris.glb" id="1_h34da"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_og8dc"]
+size = Vector3(1, 0.114624, 1)
+
+[node name="Debris" type="StaticBody3D"]
+
+[node name="debris" parent="." instance=ExtResource("1_h34da")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00408936, 0)
+shape = SubResource("BoxShape3D_og8dc")

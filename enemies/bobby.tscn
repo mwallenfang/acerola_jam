@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://bte8mwynv7rhf"]
+[gd_scene load_steps=14 format=3 uid="uid://bte8mwynv7rhf"]
 
 [ext_resource type="Script" path="res://enemies/bobby.gd" id="1_eanqe"]
-[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_tvual"]
-[ext_resource type="Script" path="res://scripts/HurtComponent.gd" id="3_ej4sb"]
-[ext_resource type="Script" path="res://scripts/SimpleFollowComponent.gd" id="4_6gmi5"]
-[ext_resource type="Script" path="res://scripts/DeathComponent.gd" id="4_wfwsn"]
+[ext_resource type="Script" path="res://scripts/components/HealthComponent.gd" id="2_s8pal"]
+[ext_resource type="Script" path="res://scripts/components/SimpleFollowComponent.gd" id="4_6gmi5"]
+[ext_resource type="Script" path="res://scripts/components/DeathComponent.gd" id="4_15qn2"]
 [ext_resource type="Script" path="res://scripts/SmoothBody.gd" id="5_njshi"]
-[ext_resource type="Script" path="res://scripts/bobbyplayerhitarea.gd" id="7_qqcng"]
+[ext_resource type="Script" path="res://scripts/components/HurtComponent.gd" id="6_4xpq8"]
+[ext_resource type="Script" path="res://scripts/enemies/bobbyplayerhitarea.gd" id="7_834kr"]
+[ext_resource type="AudioStream" uid="uid://c4mvjno6oourk" path="res://assets/meltona_sfx_bobby_loop.ogg" id="8_uxmy2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tbfmp"]
 emission = Color(1, 1, 1, 1)
@@ -28,14 +29,14 @@ height = 1.50701
 script = ExtResource("1_eanqe")
 
 [node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("2_tvual")
+script = ExtResource("2_s8pal")
 max_health = 30
 
 [node name="SimpleFollowComponent" type="Node" parent="."]
 script = ExtResource("4_6gmi5")
 
 [node name="DeathComponent" type="Node" parent="."]
-script = ExtResource("4_wfwsn")
+script = ExtResource("4_15qn2")
 
 [node name="SmoothBody" type="Node3D" parent="."]
 top_level = true
@@ -49,7 +50,7 @@ skeleton = NodePath("../..")
 [node name="HurtComponent" type="Area3D" parent="SmoothBody"]
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("3_ej4sb")
+script = ExtResource("6_4xpq8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SmoothBody/HurtComponent"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244778, 0)
@@ -59,13 +60,18 @@ shape = SubResource("SphereShape3D_gaa5f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249943, 0)
 collision_layer = 16
 collision_mask = 16
-script = ExtResource("7_qqcng")
+script = ExtResource("7_834kr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SmoothBody/PlayerHitArea"]
 shape = SubResource("CylinderShape3D_ee3sb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_xfpom")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_uxmy2")
+volume_db = -6.897
+max_distance = 10.0
 
 [connection signal="new_health_val" from="HealthComponent" to="DeathComponent" method="_on_health_component_new_health_val"]
 [connection signal="death" from="DeathComponent" to="." method="_on_death_component_death"]

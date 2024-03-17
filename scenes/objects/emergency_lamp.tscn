@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://vht0o2bhdyva"]
+
+[ext_resource type="Script" path="res://scripts/objects/emergency_lamp.gd" id="1_a0ch1"]
+[ext_resource type="ArrayMesh" uid="uid://dfsqp3f37f6ox" path="res://assets/models/emergency_lamp/emergency_lamp.obj" id="1_c2tts"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j0hi0"]
+
+[node name="EmergencyLamp" type="StaticBody3D"]
+script = ExtResource("1_a0ch1")
+
+[node name="EmergencyLamp" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_c2tts")
+skeleton = NodePath("../../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.268565, 0)
+light_color = Color(1, 0, 0, 1)
+light_energy = 0.5
+light_bake_mode = 0
+shadow_enabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_j0hi0")
+disabled = true
