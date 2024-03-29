@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://8b40hwe75q8r"]
+
+[ext_resource type="PackedScene" uid="uid://dusu1qo8t8sa" path="res://assets/models/energy_cell/energy_cell.glb" id="1_nepmk"]
+[ext_resource type="Script" path="res://scripts/energy_cell.gd" id="1_uj355"]
+[ext_resource type="Script" path="res://scripts/InteractionComponent.gd" id="2_5qwst"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tw3qb"]
+radius = 0.36556
+
+[node name="EnergyCell" type="Node3D"]
+script = ExtResource("1_uj355")
+
+[node name="energy_cell" parent="." instance=ExtResource("1_nepmk")]
+
+[node name="InteractionComponent" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.405111, 0)
+script = ExtResource("2_5qwst")
+text_hint = "Use"
+
+[node name="InteractionRegion" type="Area3D" parent="InteractionComponent"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.422472, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionComponent/InteractionRegion"]
+shape = SubResource("SphereShape3D_tw3qb")
+
+[connection signal="interacted" from="InteractionComponent" to="." method="_on_interaction_component_interacted"]

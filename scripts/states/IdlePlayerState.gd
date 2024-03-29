@@ -10,11 +10,11 @@ func enter():
 	animation_player.pause()
 
 func physics_update(delta):
-	player.update_gravity(delta)
-	player.update_input(speed, acceleration, deceleration)
-	player.update_velocity()
+	player_comp.update_gravity(delta)
+	player_comp.update_input(speed, acceleration, deceleration)
+	player_comp.update_velocity()
 
-func update(delta):
+func update(_delta):
 	if player.velocity.length() > 0. and player.is_on_floor():
 		transition.emit("WalkingPlayerState")
 		

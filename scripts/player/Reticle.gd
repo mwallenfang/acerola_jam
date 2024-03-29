@@ -21,11 +21,11 @@ func _process(delta):
 func _draw():
 	draw_circle(Vector2.ZERO, dot_radius, dot_color)
 
-func adjust_reticle_lines(delta):
+func adjust_reticle_lines(_delta):
 	var vel = player_controller.get_real_velocity()
 
-	var pos = Vector2.ZERO
-	var speed = vel.length()
+	var _pos = Vector2.ZERO
+	var _speed = vel.length()
 	
 	#reticle_lines[0].position = lerp(reticle_lines[0].position, pos + Vector2(0., -speed * reticle_distance), reticle_speed * delta)
 	#reticle_lines[1].position = lerp(reticle_lines[1].position, pos + Vector2(speed * reticle_distance, 0.), reticle_speed * delta)

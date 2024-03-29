@@ -15,13 +15,13 @@ func _ready():
 		else:
 			push_warning("State machine contains incompatible child node")
 	await owner.ready
-	print(current_state)
-	print(states)
+
 	current_state.enter()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	current_state.update(delta)
+	Global.debug.add_property("Movement State", current_state, 1)
 
 	
 func _physics_process(delta):

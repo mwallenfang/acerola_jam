@@ -8,7 +8,7 @@ var slide_timer := 0.
 @export var acceleration := 0.1
 @export var deceleration := 0.25
 
-@onready var crouch_shapecast: ShapeCast3D = %ShapeCast3D
+@onready var crouch_shapecast: ShapeCast3D = %CrouchShapeCast
 
 
 func enter():
@@ -16,7 +16,7 @@ func enter():
 	slide_timer = max_slide_time
 	animation_player.play("Crouch", -1, speed)
 	
-func update(delta):
+func update(_delta):
 	if !Input.is_action_pressed("crouch") and player.is_on_floor():
 		end_slide()
 	
@@ -26,9 +26,9 @@ func physics_update(delta):
 	if slide_timer <= 0.:
 		end_slide()
 	else:
-		player.update_gravity(delta)
-		player.update_input(speed * (slide_timer / max_slide_time), acceleration, deceleration)
-		player.update_velocity()
+		player_comp.update_gravity(delta)
+		player_comp.update_input(speed * (slide_timer / max_slide_time), acceleration, deceleration)
+		player_comp.update_velocity()
 	
 func exit():
 	animation_player.play("Crouch", -1, 2., true)
@@ -46,7 +46,7 @@ func uncrouch():
 		
 func end_slide():
 	# Check if crouch is still held, then go into crouch
-	if Input.is_action_pressed("crouch"):
+	if Input.is_action_pressed("crouch") || crouch_shapecast.is_colliding():
 		transition.emit("CrouchingPlayerState")
 	else:
 		uncrouch()

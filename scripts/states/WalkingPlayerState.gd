@@ -9,12 +9,12 @@ extends PlayerMovementState
 
 func enter():
 	animation_player.play("Walking", -1, 1.5)
-	player.speed = player.speed_default
 	
 func exit():
 	animation_player.speed_scale = 1.
 
-func update(delta):
+func update(_delta):
+
 	set_animation_speed(player.velocity.length())
 	if player.velocity.length() == 0.:
 		transition.emit("IdlePlayerState")
@@ -26,9 +26,9 @@ func update(delta):
 		transition.emit("CrouchingPlayerState")
 
 func physics_update(delta):
-	player.update_gravity(delta)
-	player.update_input(speed, acceleration, deceleration)
-	player.update_velocity()
+	player_comp.update_gravity(delta)
+	player_comp.update_input(speed, acceleration, deceleration)
+	player_comp.update_velocity()
 	
 
 func set_animation_speed(spd):

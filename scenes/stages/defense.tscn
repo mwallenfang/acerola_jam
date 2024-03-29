@@ -1,42 +1,50 @@
-[gd_scene load_steps=5 format=3 uid="uid://c5wp3roef5xky"]
+[gd_scene load_steps=8 format=3 uid="uid://c5wp3roef5xky"]
 
 [ext_resource type="PackedScene" uid="uid://y8tikcdkscmp" path="res://scenes/objects/player.tscn" id="1_22xrs"]
 [ext_resource type="LightmapGIData" uid="uid://cith077mtdaye" path="res://scenes/stages/defense.lmbake" id="1_pr5dd"]
-[ext_resource type="PackedScene" uid="uid://vew377321c0d" path="res://scenes/stages/defense/simple_stage.tscn" id="2_pf5el"]
-[ext_resource type="PackedScene" uid="uid://gwv5er3i2u3r" path="res://scenes/objects/lamp.tscn" id="3_unfjp"]
+[ext_resource type="VoxelGIData" uid="uid://c8ni7287kmttm" path="res://defense.VoxelGI_data.res" id="2_4k8fh"]
+[ext_resource type="PackedScene" uid="uid://dgjyil28wh26b" path="res://scenes/stages/defense/simple_room_20x_20.tscn" id="4_7eibs"]
+[ext_resource type="Script" path="res://scripts/WorldEnvironment.gd" id="5_3c8wm"]
+[ext_resource type="PackedScene" uid="uid://bte8mwynv7rhf" path="res://enemies/bobby.tscn" id="6_l3y3t"]
+
+[sub_resource type="Environment" id="Environment_s5lhh"]
+ssao_enabled = true
 
 [node name="Defense" type="Node3D"]
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
+quality = 2
+environment_mode = 0
 light_data = ExtResource("1_pr5dd")
 
+[node name="VoxelGI" type="VoxelGI" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.715912, 0, 7.98553)
+visible = false
+size = Vector3(25.3788, 20, 93.1215)
+data = ExtResource("2_4k8fh")
+
 [node name="player" parent="." instance=ExtResource("1_22xrs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.28904, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76767, 0)
 
 [node name="Stage" type="Node3D" parent="."]
 
-[node name="simple_stage" parent="Stage" instance=ExtResource("2_pf5el")]
+[node name="SimpleRoom20x20" parent="Stage" instance=ExtResource("4_7eibs")]
 
-[node name="Lamp" parent="." instance=ExtResource("3_unfjp")]
-transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 7.5, 4.678, 4.968)
+[node name="SimpleRoom20x23" parent="Stage" instance=ExtResource("4_7eibs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
 
-[node name="Lamp5" parent="." instance=ExtResource("3_unfjp")]
-transform = Transform3D(4.37114e-08, 1, -2.98023e-08, 1, -4.37114e-08, 0, -8.88178e-16, -2.98023e-08, -1, 4.95615, 4.678, 7.5)
+[node name="SimpleRoom20x24" parent="Stage" instance=ExtResource("4_7eibs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
 
-[node name="Lamp6" parent="." instance=ExtResource("3_unfjp")]
-transform = Transform3D(4.37114e-08, 1, -2.98023e-08, 1, -4.37114e-08, 0, -8.88178e-16, -2.98023e-08, -1, 4.95615, 4.678, -7.5)
+[node name="SimpleRoom20x21" parent="Stage" instance=ExtResource("4_7eibs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
 
-[node name="Lamp7" parent="." instance=ExtResource("3_unfjp")]
-transform = Transform3D(-4.37114e-08, -1, 1.17225e-07, 1, -4.37114e-08, 0, 4.70955e-15, 1.17225e-07, 1, -4.96763, 4.678, -7.5)
+[node name="SimpleRoom20x22" parent="Stage" instance=ExtResource("4_7eibs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
 
-[node name="Lamp8" parent="." instance=ExtResource("3_unfjp")]
-transform = Transform3D(-4.37114e-08, -1, 1.17225e-07, 1, -4.37114e-08, 0, 4.70955e-15, 1.17225e-07, 1, -4.96763, 4.678, 7.5)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s5lhh")
+script = ExtResource("5_3c8wm")
 
-[node name="Lamp2" parent="." instance=ExtResource("3_unfjp")]
-transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -7.5, 4.678, 4.968)
-
-[node name="Lamp3" parent="." instance=ExtResource("3_unfjp")]
-transform = Transform3D(-5.73206e-15, -1.31134e-07, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, 1.31134e-07, -7.5, 4.678, -4.98094)
-
-[node name="Lamp4" parent="." instance=ExtResource("3_unfjp")]
-transform = Transform3D(-5.73206e-15, -1.31134e-07, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, 1.31134e-07, 7.5, 4.678, -4.98094)
+[node name="Bobby" parent="." instance=ExtResource("6_l3y3t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.431, 1.87878, 2.90016)
