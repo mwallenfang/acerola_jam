@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dujdkauu31syh"]
+
+[ext_resource type="PackedScene" uid="uid://b10332lep0sbp" path="res://scenes/stages/sky/tiles/platform.tscn" id="1_xjlee"]
+[ext_resource type="PackedScene" uid="uid://y8tikcdkscmp" path="res://scenes/objects/player.tscn" id="2_fc3mj"]
+[ext_resource type="PackedScene" uid="uid://cwjgiwgwmw2k4" path="res://scenes/objects/pillar.tscn" id="3_hxq7v"]
+[ext_resource type="Script" path="res://scripts/WaveCollapse.gd" id="4_cy5ff"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vmoll"]
+sky_top_color = Color(0.745098, 0.792157, 0.854902, 1)
+sky_horizon_color = Color(0.852941, 0.9, 0.963726, 1)
+ground_bottom_color = Color(0.666667, 0.807843, 1, 1)
+ground_horizon_color = Color(0.852941, 0.9, 0.963726, 1)
+
+[sub_resource type="Sky" id="Sky_yy6v2"]
+sky_material = SubResource("ProceduralSkyMaterial_vmoll")
+
+[sub_resource type="Environment" id="Environment_ogaso"]
+background_mode = 2
+sky = SubResource("Sky_yy6v2")
+tonemap_mode = 2
+tonemap_white = 1.5
+
+[node name="Sky" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ogaso")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Stage" type="Node3D" parent="."]
+
+[node name="Platform" parent="Stage" instance=ExtResource("1_xjlee")]
+
+[node name="Pillar3" parent="Stage" instance=ExtResource("3_hxq7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5025, -2)
+
+[node name="Pillar4" parent="Stage" instance=ExtResource("3_hxq7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5025, -2)
+
+[node name="player" parent="." instance=ExtResource("2_fc3mj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+
+[node name="WaveCollapseStart" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5)
+script = ExtResource("4_cy5ff")

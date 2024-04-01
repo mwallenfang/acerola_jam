@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Moltena"
-run/main_scene="res://scenes/stages/defense.tscn"
+run/main_scene="res://scenes/stages/sky/sky.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"

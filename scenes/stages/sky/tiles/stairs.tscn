@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbehfdfqeggxo"]
+
+[ext_resource type="PackedScene" uid="uid://dyfqb87msfbwi" path="res://assets/models/stairs/stairs.glb" id="1_qo652"]
+[ext_resource type="Script" path="res://scripts/ModularTile.gd" id="2_qmxka"]
+[ext_resource type="Script" path="res://scripts/ModularConnector.gd" id="3_ttc7c"]
+
+[node name="Stairs" type="Node3D"]
+
+[node name="stairs" parent="." instance=ExtResource("1_qo652")]
+
+[node name="ModularTile" type="Node" parent="." node_paths=PackedStringArray("connections")]
+script = ExtResource("2_qmxka")
+height = 5
+connections = [NodePath("../Connectors/Connector1"), NodePath("../Connectors/Connector2")]
+
+[node name="Connectors" type="Node3D" parent="."]
+
+[node name="Connector1" type="Node3D" parent="Connectors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+script = ExtResource("3_ttc7c")
+direction = 3
+
+[node name="Connector2" type="Node3D" parent="Connectors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2.5)
+script = ExtResource("3_ttc7c")
+direction = -3
